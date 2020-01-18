@@ -6,13 +6,14 @@ const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
+const path = require('path')
 
 
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
 
 app.set('view engine', 'ejs')//setting view engine
-app.set('views', __dirname + '/views') //views to keep all the different views of our files for our server 
+app.set('views', path.join(__dirname,'/views')) //views to keep all the different views of our files for our server 
 app.set('layout', 'layouts/layout') // to keep all the layout files to prevent duplicate, e.g., header & footer
 app.use(expressLayouts)
 app.use(express.static('public'))
